@@ -10,8 +10,9 @@ import entity.Serialization;
 public class AdminController {
 	public static void adminSignUp() throws Exception {
 		Scanner input = new Scanner(System.in);
-		System.out.println("Please enter the secret key to sign up as admin!");
+		System.out.println("Please enter the secret key to sign up as a admin:");
 		if (!input.nextLine().equals("SC2002")) {
+			System.out.println("You are not allowed to sign up as a admin");
 			return;
 		}
 
@@ -22,11 +23,15 @@ public class AdminController {
 		
 		boolean isExist = false;
 
-		for (int i = 0; i < adminList.size(); i++) {
-			if (adminList.get(i).getUsername().equals(admin.getUsername())) {
-				isExist = true;
-				break;
+		if (adminList != null) {
+			for (int i = 0; i < adminList.size(); i++) {
+				if (adminList.get(i).getUsername().equals(admin.getUsername())) {
+					isExist = true;
+					break;
+				}
 			}
+		} else {
+			adminList = new ArrayList<Admin>();
 		}
 		
 		if (!isExist) {
@@ -50,15 +55,19 @@ public class AdminController {
 		Admin admin;
 		boolean isAuth = false;
 		
-		for (int i = 0; i < adminList.size(); i++) {
-			admin = adminList.get(i);
-			if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
-				isAuth = true;
-				break;
+		if (adminList != null) {
+			for (int i = 0; i < adminList.size(); i++) {
+				admin = adminList.get(i);
+				if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
+					isAuth = true;
+					break;
+				}
 			}
 		}
+
 		if (isAuth) {
 			System.out.println("Sign in successfully!");
+			
 		} else {
 			System.out.println("Username or password is not valid!");
 		}

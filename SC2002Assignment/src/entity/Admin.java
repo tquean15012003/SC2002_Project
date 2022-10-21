@@ -39,7 +39,7 @@ public class Admin implements Serializable {
 		this.password = input.nextLine();
 		
 		System.out.println("Enter your name:");
-		this.password = input.nextLine();
+		this.name = input.nextLine();
 			
 	}
 	
