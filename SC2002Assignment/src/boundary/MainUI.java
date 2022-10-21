@@ -12,7 +12,7 @@ public class MainUI {
 
 		while (choice != 3) {
 			System.out.println("1. Administrator");
-			System.out.println("2. Movie goer");
+			System.out.println("2. Movie Goer");
 			System.out.println("3. Quit MOBLIMA");
 			System.out.println("Enter your choice:");
 			choice = input.nextInt();
@@ -22,7 +22,7 @@ public class MainUI {
 				AdminUI.AdminMainUI();
 				break;
 			case 2:
-				// MovieGoerUI.MovieGoerMainUI();
+				MovieGoerUI.MovieGoerMainUI();
 				break;
 			default:
 				System.out.println("Thank for using our MOBLIMA app!");

@@ -8,5 +8,7 @@ public class DataPath {
 	 * The file path of the admin
 	 */
 	public static final String ADMIN = "database/Admin.ser";
+	
+	public static final String MOVIEGOER = "database/MovieGoer.ser";
 
 }
