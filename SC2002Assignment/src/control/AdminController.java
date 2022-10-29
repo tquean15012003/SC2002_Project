@@ -3,6 +3,7 @@ package control;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import boundary.AdminUI;
 import entity.Admin;
 import entity.DataPath;
 import entity.Serialization;
@@ -18,8 +19,12 @@ public class AdminController {
 
 		ArrayList<Admin> adminList = (ArrayList<Admin>) Serialization.readSerializedObject(DataPath.ADMIN);
 		
+		String username = getUsername();
+		String password = getPassword();
+		String name = getName();
+
 		Admin admin;
-		admin = new Admin();
+		admin = new Admin(username, password, name);
 		
 		boolean isExist = false;
 
@@ -37,22 +42,19 @@ public class AdminController {
 		if (!isExist) {
 			adminList.add(admin);
 			Serialization.writeSerializedObject(DataPath.ADMIN, adminList);
-			System.out.println("Sign up successfully!");
+			System.out.println("Sign up successfully!\n");
 		} else {
-			System.out.println("Admin already exist!");
+			System.out.println("Admin already exist!\n");
 		}	
 	}
 	
 	public static void adminLogIn() throws Exception{
-		Scanner input = new Scanner(System.in);
-		System.out.println("Enter username:");
-		String username = input.nextLine();
-		System.out.println("Enter password:");
-		String password = input.nextLine();
 		
-		
+		String username = getUsername();
+		String password = getPassword();
+				
 		ArrayList<Admin> adminList = (ArrayList<Admin>) Serialization.readSerializedObject(DataPath.ADMIN);
-		Admin admin;
+		Admin admin = null;
 		boolean isAuth = false;
 		
 		if (adminList != null) {
@@ -66,10 +68,32 @@ public class AdminController {
 		}
 
 		if (isAuth) {
-			System.out.println("Sign in successfully!");
-			
+			System.out.println("Sign in successfully!\n");
+			AdminUI.AdminServicesUI(admin);
 		} else {
-			System.out.println("Username or password is not valid!");
+			System.out.println("Username or password is not valid!\n");
 		}
 	}
+	
+	private static String getUsername() {
+	    Scanner input = new Scanner(System.in);
+	    System.out.println("Enter username:");
+        String username = input.nextLine();
+	    return username;
+	}
+	
+	private static String getPassword() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter password:");
+        String password = input.nextLine();
+        return password;
+    }
+
+    private static String getName() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter name:");
+        String name = input.nextLine();
+        return name;
+    }
+	
 }

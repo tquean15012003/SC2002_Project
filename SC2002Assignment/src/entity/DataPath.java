@@ -10,5 +10,6 @@ public class DataPath {
 	public static final String ADMIN = "database/Admin.ser";
 	
 	public static final String MOVIEGOER = "database/MovieGoer.ser";
-
+	
+    public static final String MOVIE = "database/Movie.ser";
 }

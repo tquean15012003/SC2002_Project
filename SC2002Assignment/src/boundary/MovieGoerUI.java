@@ -2,7 +2,10 @@ package boundary;
 
 import java.util.Scanner;
 
+import control.MovieController;
 import control.MovieGoerController;
+import entity.Admin;
+import entity.MovieGoer;
 
 public class MovieGoerUI {
 		
@@ -41,8 +44,72 @@ public class MovieGoerUI {
 				}
 			}
 			
-			
 		}
+		
+		public static void MovieGoerServicesUI(MovieGoer movieGoer) {
+	        int choice = 0;
+	        System.out.println("Hi " + movieGoer.getName());
+	        System.out.println("===== What would you like to do? =====");
 
+	        while (choice != 6) {
+	            System.out.println("1. View movie showtimes");
+	            System.out.println("2. Book a ticket");
+	            System.out.println("3. View movie details");
+	            System.out.println("4. List top 5 movies");
+	            System.out.println("5. View booking history");
+	            System.out.println("6. Exit");
+	            System.out.println("Enter your choice:");
+
+	            choice = input.nextInt();
+
+	            switch (choice) {
+	            case 3:
+	                try {
+	                    MovieController.viewMovieDetail();
+	                } catch (Exception e) {
+	                    e.printStackTrace();
+	                }
+	                break;
+	            case 4:
+	                MovieGoerListTopMovieServicesUI();
+	                break;
+	            default:
+	                return;
+	            }
+	        }
+	    }
+
+		public static void MovieGoerListTopMovieServicesUI() {
+	        int choice = 0;
+	        System.out.println("Top 5 movies by ... ");
+
+	        while (choice != 3) {
+	            System.out.println("1. Ratings");
+	            System.out.println("2. Ticket sales");
+	            System.out.println("3. Exit");
+	            System.out.println("Enter your choice:");
+
+	            choice = input.nextInt();
+
+	            switch (choice) {
+	                case 1:
+	                    try {
+	                        MovieController.listTopMovieByRating();
+	                    } catch (Exception e) {
+	                        e.printStackTrace();
+	                    }
+	                    break;
+	                case 2:
+	                    try {
+	                        MovieController.listTopMovieBySales();
+	                    } catch (Exception e) {
+	                        e.printStackTrace();
+	                    }
+	                    break;
+	                default:
+	                    return;
+	            }
+	        }
+	    }
 }
 

@@ -1,6 +1,5 @@
 package entity;
 
-import java.util.Scanner;
 import java.io.Serializable;
 
 /**
@@ -36,37 +35,19 @@ public class MovieGoer implements Serializable {
 	/**
 	 * The age of the movie goer
 	 */
-	private int age;
+	private Integer age;
 	
 	/**
      * This method creates a MobileGoer object with the given username, password, name, mobile, email and age
-     * @param username the username of the movie goer
-     * @param password the password of the movie goer
-     * @param name the name of the movie goer
-     * @param mobile the mobile of the movie goer
-     * @param email the email of the movie goer
-     * @param age the age of the movie goer
      */
-	public MovieGoer() {
-		Scanner input = new Scanner(System.in);
-		
-		System.out.println("Enter username:");
-		this.username = input.nextLine();
-		
-		System.out.println("Enter password:");
-		this.password = input.nextLine();
-		
-		System.out.println("Enter your name:");
-		this.name = input.nextLine();
-		
-		System.out.println("Enter your mobile number:");
-		this.mobile = input.nextLine();
-		
-		System.out.println("Enter your email address:");
-		this.email = input.nextLine();
-
-		System.out.println("Enter your age:");
-		this.age = input.nextInt();	
+	
+	public MovieGoer(String username, String password, String name, String mobile, String email, Integer age) {
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.mobile = mobile;
+		this.email = email;
+		this.age = age;
 	}
 	
 	/**
@@ -153,7 +134,7 @@ public class MovieGoer implements Serializable {
      * This method returns the age of the movie goer
      * @return the age of the movie goer
      */	
-	public int getAge() {
+	public Integer getAge() {
 		return this.age;
 	}
 	
@@ -161,7 +142,7 @@ public class MovieGoer implements Serializable {
      * This method sets the age of the movie goer
      * @param age the new age of the movie goer
      */	
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 

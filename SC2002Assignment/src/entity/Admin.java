@@ -1,6 +1,5 @@
 package entity;
 
-import java.util.Scanner;
 import java.io.Serializable;
 
 /**
@@ -29,18 +28,10 @@ public class Admin implements Serializable {
      * @param password the password of the admin
      * @param name the name of the admin
      */
-	public Admin() {
-		Scanner input = new Scanner(System.in);
-		
-		System.out.println("Enter username:");
-		this.username = input.nextLine();
-		
-		System.out.println("Enter password:");
-		this.password = input.nextLine();
-		
-		System.out.println("Enter your name:");
-		this.name = input.nextLine();
-			
+	public Admin(String username, String password, String name) {
+		this.username = username;
+		this.password = password;
+		this.name = name;	
 	}
 	
 	/**
@@ -90,5 +81,4 @@ public class Admin implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }
