@@ -8,7 +8,7 @@ import entity.Admin;
 import entity.DataPath;
 import entity.Serialization;
 
-public class AdminController {
+public class AdminController{
 	public static void adminSignUp() throws Exception {
 		Scanner input = new Scanner(System.in);
 		System.out.println("Please enter the secret key to sign up as a admin:");

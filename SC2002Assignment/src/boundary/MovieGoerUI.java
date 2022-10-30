@@ -12,7 +12,7 @@ public class MovieGoerUI {
 		private static Scanner input = new Scanner(System.in);
 
 		
-		public static  void MovieGoerMainUI() {
+		public static void MovieGoerMainUI() {
 			int choice = 0;
 			System.out.println("===== Welcome to MovieGoer UI =====");
 
