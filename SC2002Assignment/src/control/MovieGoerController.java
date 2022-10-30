@@ -52,7 +52,6 @@ public class MovieGoerController {
 			movieGoerList.add(movieGoer);
 			Serialization.writeSerializedObject(DataPath.MOVIEGOER, movieGoerList);
 			System.out.println("Sign up successfully!");
-			MovieGoerUI.MovieGoerServicesUI(movieGoer);
 		} else {
 			System.out.println("Admin already exist!");
 		}
@@ -68,7 +67,7 @@ public class MovieGoerController {
 		String password = input.nextLine();
 
 		ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
-		MovieGoer movieGoer;
+		MovieGoer movieGoer = null;
 		boolean isAuth = false;
 		
 		if (movieGoerList != null) {
@@ -83,7 +82,7 @@ public class MovieGoerController {
 
 		if (isAuth) {
 			System.out.println("Sign in successfully!");
-			
+	         MovieGoerUI.MovieGoerServicesUI(movieGoer);
 		} else {
 			System.out.println("Username or password is not valid!");
 		}
