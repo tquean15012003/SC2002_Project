@@ -22,14 +22,18 @@ public class ReviewRating {
 	 * The rating
 	 */
     private Integer rating;
+    
+    private String review;
 
     /**
 	 * Creates a {@code ReviewRating} object with the given movie goer, review and rating
 	 * @param movieGoer the movie goer who made the review rating
 	 */
-    ReviewRating(MovieGoer movieGoer) {
+    ReviewRating(MovieGoer movieGoer, String review) {
         this.movieGoer = movieGoer;
 
+        this.review = review;
+        
         Scanner input = new Scanner(System.in);
 		
 		System.out.println("Enter rating from 1 to 5:");
@@ -46,7 +50,6 @@ public class ReviewRating {
             this.rating = 0;
         }
 
-        input.close();
     }
 
     public Integer getRating() {
@@ -55,5 +58,9 @@ public class ReviewRating {
 
     public MovieGoer getMovieGoer() {
         return this.movieGoer;
+    }
+    
+    public String getReview() {
+        return this.review;
     }
 }

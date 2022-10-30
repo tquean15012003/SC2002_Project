@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import boundary.AdminUI;
+import boundary.CommonUI;
 import entity.Admin;
 import entity.DataPath;
 import entity.Serialization;
@@ -11,9 +12,9 @@ import entity.Serialization;
 public class AdminController {
 	public static void adminSignUp() throws Exception {
 		Scanner input = new Scanner(System.in);
-		System.out.println("Please enter the secret key to sign up as a admin:");
+		CommonUI.displaySingleMessage("Please enter the secret key to sign up as a admin:");
 		if (!input.nextLine().equals("SC2002")) {
-			System.out.println("You are not allowed to sign up as a admin");
+		    CommonUI.displaySingleMessage("You are not allowed to sign up as a admin");
 			return;
 		}
 
@@ -42,9 +43,11 @@ public class AdminController {
 		if (!isExist) {
 			adminList.add(admin);
 			Serialization.writeSerializedObject(DataPath.ADMIN, adminList);
-			System.out.println("Sign up successfully!\n");
+	        CommonUI.displaySingleMessage("Sign up successfully!\n");
+
 		} else {
-			System.out.println("Admin already exist!\n");
+	        CommonUI.displaySingleMessage("Admin already exist!\n");
+
 		}	
 	}
 	
@@ -68,30 +71,30 @@ public class AdminController {
 		}
 
 		if (isAuth) {
-			System.out.println("Sign in successfully!\n");
-			AdminUI.AdminServicesUI(admin);
+	        CommonUI.displaySingleMessage("Sign in successfully!\n");
+			AdminUI.displayAdminServicesUI(admin);
 		} else {
-			System.out.println("Username or password is not valid!\n");
+	        CommonUI.displaySingleMessage("Username or password is not valid!\n");
 		}
 	}
 	
 	private static String getUsername() {
 	    Scanner input = new Scanner(System.in);
-	    System.out.println("Enter username:");
+        CommonUI.displaySingleMessage("Enter username:");
         String username = input.nextLine();
 	    return username;
 	}
 	
 	private static String getPassword() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter password:");
+        CommonUI.displaySingleMessage("Enter password:");
         String password = input.nextLine();
         return password;
     }
 
     private static String getName() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter name:");
+        CommonUI.displaySingleMessage("Enter name:");
         String name = input.nextLine();
         return name;
     }

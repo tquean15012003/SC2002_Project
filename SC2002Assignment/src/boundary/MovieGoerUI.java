@@ -12,7 +12,7 @@ public class MovieGoerUI {
 		private static Scanner input = new Scanner(System.in);
 
 		
-		public static  void MovieGoerMainUI() {
+		public static  void displayMovieGoerMainUI() {
 			int choice = 0;
 			System.out.println("===== Welcome to MovieGoer UI =====");
 
@@ -46,7 +46,7 @@ public class MovieGoerUI {
 			
 		}
 		
-		public static void MovieGoerServicesUI(MovieGoer movieGoer) {
+		public static void displayMovieGoerServicesUI(MovieGoer movieGoer) {
 	        int choice = 0;
 	        System.out.println("Hi " + movieGoer.getName());
 	        System.out.println("===== What would you like to do? =====");
@@ -71,7 +71,7 @@ public class MovieGoerUI {
 	                }
 	                break;
 	            case 4:
-	                MovieGoerListTopMovieServicesUI();
+	                displayMovieGoerListTopMovieServicesUI();
 	                break;
 	            default:
 	                return;
@@ -79,7 +79,7 @@ public class MovieGoerUI {
 	        }
 	    }
 
-		public static void MovieGoerListTopMovieServicesUI() {
+		public static void displayMovieGoerListTopMovieServicesUI() {
 	        int choice = 0;
 	        System.out.println("Top 5 movies by ... ");
 

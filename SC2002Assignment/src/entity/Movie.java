@@ -36,6 +36,11 @@ public class Movie implements Serializable{
 	private String movieType;
 
 	/**
+     * The movie type of the movie
+     */
+    private String releaseRating;
+    
+	/**
 	 * The list of review ratings of the movie
 	 */
 	private ArrayList<ReviewRating> reviewRatings = new ArrayList<ReviewRating>();
@@ -50,13 +55,14 @@ public class Movie implements Serializable{
 	/**
 	 * Creates a {@code Movie} object with the given title, synopsis, director, cast, showing status, release rating, movie type
 	 */
-	public Movie(String title, String synopsis, String director, ArrayList<String> cast, String showingStatus, String movieType, String duration) {
+	public Movie(String title, String synopsis, String director, ArrayList<String> cast, String showingStatus, String movieType, String releaseRating, String duration) {
         this.title = title;
         this.synopsis = synopsis;
         this.director = director;
         this.cast = cast;
         this.showingStatus = showingStatus;
         this.movieType = movieType;
+        this.releaseRating = releaseRating;
         this.duration = duration;
 	}
 	
@@ -103,6 +109,14 @@ public class Movie implements Serializable{
 
     public String getMovieType() {
         return movieType;
+    }
+    
+    public void setReleaseRating(String releaseRating) {
+        this.releaseRating = releaseRating;
+    }
+    
+    public String getReleaseRating() {
+        return this.releaseRating;
     }
     
     public void setMovieType(String movieType) {

@@ -12,4 +12,8 @@ public class DataPath {
 	public static final String MOVIEGOER = "database/MovieGoer.ser";
 	
     public static final String MOVIE = "database/Movie.ser";
+    
+    public static final String BOOKING = "database/Booking.ser";
+
+    public static final String CINEPLEX = "database/Cineplex.ser";
 }

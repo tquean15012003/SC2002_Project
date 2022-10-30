@@ -5,13 +5,14 @@ import java.util.Scanner;
 
 import control.AdminController;
 import control.MovieController;
+import control.ShowTimeController;
 import entity.Admin;
 
 public class AdminUI {
 	
 	private static Scanner input = new Scanner(System.in);
 
-	public static  void AdminMainUI() {
+	public static void displayAdminMainUI() {
 		int choice = 0;
 		System.out.println("===== Welcome to Admin UI =====");
 
@@ -44,7 +45,7 @@ public class AdminUI {
 		}
 	}
 
-	public static void AdminServicesUI(Admin admin) {
+	public static void displayAdminServicesUI(Admin admin) {
 		int choice = 0;
 		System.out.println("Hi " + admin.getName());
 		System.out.println("===== What would you like to do? =====");
@@ -61,10 +62,13 @@ public class AdminUI {
 
 			switch (choice) {
 			case 1:
-				AdminMovieServicesUI();
+				displayAdminMovieServicesUI();
+				break;
+			case 2:
+			    displayAdminShowtimeServicesUI();
 				break;
 			case 4:
-                AdminListTopMovieServicesUI();
+                displayAdminListTopMovieServicesUI();
                 break;
 			default:
 				return;
@@ -72,7 +76,7 @@ public class AdminUI {
 		}
 	}
 	
-	public static  void AdminMovieServicesUI() {
+	public static  void displayAdminMovieServicesUI() {
 		int choice = 0;
 		System.out.println("===== What would you like to do? =====");
 
@@ -121,7 +125,37 @@ public class AdminUI {
 		}
 	}
 
-    public static void AdminListTopMovieServicesUI() {
+	public static  void displayAdminShowtimeServicesUI() {
+        int choice = 0;
+        System.out.println("===== What would you like to do? =====");
+
+        while (choice != 5) {
+            System.out.println("1. View movie showtimes");
+            System.out.println("2. Add a Show Time");
+            System.out.println("3. Update a Show Time");
+            System.out.println("4. Remove a Show Time");
+            System.out.println("5. Exit");
+            System.out.println("Enter your choice:");
+
+            choice = input.nextInt();
+
+            switch (choice) {
+       
+            case 2:
+                try {
+                    ShowTimeController.addShowTime();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+     
+            default:
+                return;
+            }
+        }
+	}
+        
+    public static void displayAdminListTopMovieServicesUI() {
         int choice = 0;
         System.out.println("Top 5 movies by ... ");
 

@@ -3,6 +3,7 @@ package control;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import boundary.CommonUI;
 import boundary.MovieGoerUI;
 import entity.DataPath;
 import entity.MovieGoer;
@@ -15,23 +16,12 @@ public class MovieGoerController {
 		ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
 
 
-		System.out.println("Enter username:");
-		String username = input.nextLine();
-		
-		System.out.println("Enter password:");
-		String password = input.nextLine();
-		
-		System.out.println("Enter your name:");
-		String name = input.nextLine();
-		
-		System.out.println("Enter your mobile number:");
-		String mobile = input.nextLine();
-		
-		System.out.println("Enter your email address:");
-		String email = input.nextLine();
-
-		System.out.println("Enter your age:");
-		Integer age = input.nextInt();	
+		String username = getUsername();
+		String password = getPassword();
+		String name = getName();
+		String mobile = getMobile();
+		String email = getEmail();
+		Integer age = getAge();
 
 		MovieGoer movieGoer = new MovieGoer(username, password, name, mobile, email, age);
 		
@@ -51,20 +41,16 @@ public class MovieGoerController {
 		if (!isExist) {
 			movieGoerList.add(movieGoer);
 			Serialization.writeSerializedObject(DataPath.MOVIEGOER, movieGoerList);
-			System.out.println("Sign up successfully!");
+			CommonUI.displaySingleMessage("Sign up successfully!\n");
 		} else {
-			System.out.println("Admin already exist!");
+	        CommonUI.displaySingleMessage("Movie goer already exist!\n");
+
 		}
 	}
 	
 	public static void movieGoerLogIn() throws Exception{
-		Scanner input = new Scanner(System.in);
-
-		System.out.println("Enter username:");
-		String username = input.nextLine();
-
-		System.out.println("Enter password:");
-		String password = input.nextLine();
+		String username = getUsername();
+		String password = getPassword();
 
 		ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
 		MovieGoer movieGoer = null;
@@ -81,10 +67,52 @@ public class MovieGoerController {
 		}
 
 		if (isAuth) {
-			System.out.println("Sign in successfully!");
-	         MovieGoerUI.MovieGoerServicesUI(movieGoer);
+			CommonUI.displaySingleMessage("Sign in successfully!");
+	         MovieGoerUI.displayMovieGoerServicesUI(movieGoer);
 		} else {
-			System.out.println("Username or password is not valid!");
+	         CommonUI.displaySingleMessage("Username or password is not valid!");
 		}
 	}
+	
+	private static String getUsername() {
+	    Scanner input = new Scanner(System.in);
+	    CommonUI.displaySingleMessage("Enter username:");
+	    String username = input.nextLine();
+	    return username;
+	}
+	
+	private static String getPassword() {
+        Scanner input = new Scanner(System.in);
+        CommonUI.displaySingleMessage("Enter password:");
+        String password = input.nextLine();
+        return password;
+    }
+	
+	private static String getName() {
+        Scanner input = new Scanner(System.in);
+        CommonUI.displaySingleMessage("Enter name:");
+        String name = input.nextLine();
+        return name;
+    }
+	
+	private static String getMobile() {
+        Scanner input = new Scanner(System.in);
+        CommonUI.displaySingleMessage("Enter mobile number:");
+        String mobile = input.nextLine();
+        return mobile;
+    }
+	
+	private static String getEmail() {
+        Scanner input = new Scanner(System.in);
+        CommonUI.displaySingleMessage("Enter email:");
+        String email = input.nextLine();
+        return email;
+    }
+	
+	private static Integer getAge() {
+        Scanner input = new Scanner(System.in);
+        CommonUI.displaySingleMessage("Enter age:");
+        Integer age = input.nextInt();
+        return age;
+    }
 }
