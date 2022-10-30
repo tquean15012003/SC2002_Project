@@ -67,7 +67,7 @@ public class AdminUI {
                 AdminListTopMovieServicesUI();
                 break;
 			default:
-				return;
+				break;
 			}
 		}
 	}
