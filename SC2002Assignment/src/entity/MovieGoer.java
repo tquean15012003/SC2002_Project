@@ -6,7 +6,7 @@ import java.io.Serializable;
  * This class contains all the information of a movie goer
  */
 
-public class MovieGoer implements Serializable {
+public class MovieGoer extends Account implements Serializable {
 	/**
 	 * The username of the movie goer
 	 */

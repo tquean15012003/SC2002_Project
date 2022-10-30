@@ -6,7 +6,7 @@ import java.io.Serializable;
  * This class contains all the information of a admin
  */
 
-public class Admin implements Serializable {
+public class Admin extends Account implements Serializable {
 	/**
 	 * The username of the admin
 	 */
