@@ -12,7 +12,7 @@ public class MovieGoerUI {
 		private static Scanner input = new Scanner(System.in);
 
 		
-		public static  void MovieGoerMainUI() {
+		public static void MovieGoerMainUI() {
 			int choice = 0;
 			System.out.println("===== Welcome to MovieGoer UI =====");
 
@@ -40,7 +40,7 @@ public class MovieGoerUI {
 					}
 					break;
 				default:
-					return;
+					break;
 				}
 			}
 			
@@ -63,19 +63,31 @@ public class MovieGoerUI {
 	            choice = input.nextInt();
 
 	            switch (choice) {
-	            case 3:
-	                try {
-	                    MovieController.viewMovieDetail();
-	                } catch (Exception e) {
-	                    e.printStackTrace();
-	                }
-	                break;
-	            case 4:
-	                MovieGoerListTopMovieServicesUI();
-	                break;
-	            default:
-	                return;
-	            }
+	                case 1: 
+	                    // 1. View movie showtimes
+	                    break;
+	                case 2: 
+	                    // 2. Book a ticket
+	                    break;
+    	            case 3:
+    	                // 3. View movie details
+    	                try {
+    	                    MovieController.viewMovieDetail();
+    	                } catch (Exception e) {
+    	                    e.printStackTrace();
+    	                }
+    	                break;
+    	            case 4:
+    	                // 4. List top 5 movies
+    	                MovieGoerListTopMovieServicesUI();
+    	                break;
+    	            case 5: 
+    	                // 5. View booking history
+    	                break;
+    	            case 6: return; // 6. Exit
+    	            default:
+    	                break;
+    	            }
 	        }
 	    }
 
@@ -107,7 +119,7 @@ public class MovieGoerUI {
 	                    }
 	                    break;
 	                default:
-	                    return;
+	                    break;
 	            }
 	        }
 	    }
