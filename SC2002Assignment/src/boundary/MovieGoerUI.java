@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 import control.MovieController;
 import control.MovieGoerController;
-import entity.Admin;
 import entity.MovieGoer;
 
 public class MovieGoerUI {
@@ -63,7 +62,6 @@ public class MovieGoerUI {
 	            choice = input.nextInt();
 
 	            switch (choice) {
-
 	                case 1: 
 	                    // 1. View movie showtimes
 	                    break;
@@ -85,7 +83,6 @@ public class MovieGoerUI {
     	            case 5: 
     	                // 5. View booking history
     	                break;
-    	            case 6: return; // 6. Exit
     	            default:
     	                break;
     	            }

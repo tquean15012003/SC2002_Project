@@ -51,7 +51,7 @@ public class AdminUI {
 		System.out.println("Hi " + admin.getName());
 		System.out.println("===== What would you like to do? =====");
 
-		while (choice != 3) {
+		while (choice != 5) {
 			System.out.println("1. Modify Movie Listings");
 			System.out.println("2. Modify Cinema Showtimes");
 			System.out.println("3. Modify Ticket Pricing Scheme");
@@ -72,7 +72,7 @@ public class AdminUI {
                 displayAdminListTopMovieServicesUI();
                 break;
 			case 5:
-                AdminListTopMovieServicesUI();
+                displayAdminListTopMovieServicesUI();
                 return;
 			default:
 				break;
@@ -154,7 +154,7 @@ public class AdminUI {
                 break;
      
             default:
-                return;
+                break;
             }
         }
 	}

@@ -13,17 +13,14 @@ public class MovieController {
     
     public static void viewMovieDetail() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
-        if (movieList == null || movieList.size() == 0) {
+        
+        int choice = chooseMovieFromList(movieList);
+        
+        if (choice == -1) {
             CommonUI.displaySingleMessage("\nThere is no movie now!\n");
             return;
         }
-
-        MovieUI.displayMovieList(movieList);
         
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
-        CommonUI.displaySingleMessage("Enter your choice:");
-        choice = input.nextInt();
         Movie movie = movieList.get(choice - 1);
         
         MovieUI.displayMovieDetail(movie);
@@ -56,23 +53,20 @@ public class MovieController {
     
     public static void updateMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
-        if (movieList == null || movieList.size() == 0) {
-            CommonUI.displaySingleMessage("\nThere is no movie to remove!\n");
+        
+        int choice = chooseMovieFromList(movieList);
+        
+        if (choice == -1) {
+            CommonUI.displaySingleMessage("\nThere is no movie to update!\n");
             return;
         }
-        
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
-        
-        MovieUI.displayMovieList(movieList);
-        CommonUI.displaySingleMessage("Enter your choice:");
-        choice = input.nextInt();
         
         int index = choice - 1;
         Movie movie = movieList.get(index);
         
         MovieUI.displayMovieUpdateOption();
         CommonUI.displaySingleMessage("Enter your choice:");
+        Scanner input = new Scanner(System.in);
         choice = input.nextInt();
         
         switch(choice) {
@@ -116,19 +110,14 @@ public class MovieController {
     
     public static void removeMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
-        if (movieList == null || movieList.size() == 0) {
+        
+        int choice = chooseMovieFromList(movieList);
+        
+        if (choice == -1) {
             CommonUI.displaySingleMessage("\nThere is no movie to remove!\n");
             return;
         }
-        
-        int choice = 0;
-        Scanner input = new Scanner(System.in);
-        
-        MovieUI.displayMovieList(movieList);
-        
-        CommonUI.displaySingleMessage("Enter your choice:");
-
-        choice = input.nextInt();
+       
         movieList.remove(choice - 1);
         
         Serialization.writeSerializedObject(DataPath.MOVIE, movieList);
@@ -137,6 +126,7 @@ public class MovieController {
 
         return;
     }
+    
     
     public static void listTopMovieByRating() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
@@ -161,6 +151,7 @@ public class MovieController {
         MovieUI.displayTopMovieByOverallRating(movieList);
     }
     
+    
     public static void listTopMovieBySales() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
         if (movieList == null || movieList.size() == 0) {
@@ -184,6 +175,24 @@ public class MovieController {
         MovieUI.displayTopMovieBySales(movieList);
         
     }
+    
+    public static int chooseMovieFromList(ArrayList<Movie> movieList) {
+        int choice = -1;
+        if (movieList == null || movieList.size() == 0) {
+            return choice;
+        }
+
+        
+        choice = 0;
+        Scanner input = new Scanner(System.in);
+        while (choice < 1 || choice > movieList.size()) {
+            MovieUI.displayMovieList(movieList);
+            CommonUI.displaySingleMessage("Enter your choice:");
+            choice = input.nextInt();
+        }
+        return choice;
+    }
+    
     
     private static String getTitle() {
         Scanner input = new Scanner(System.in);
