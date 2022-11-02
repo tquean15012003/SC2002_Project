@@ -10,22 +10,22 @@ import entity.MovieGoer;
 import entity.Serialization;
 
 public class MovieGoerController {
-	public static void movieGoerSignUp() throws Exception {
-		Scanner input = new Scanner(System.in);
+    public static void movieGoerSignUp() throws Exception {
+        Scanner input = new Scanner(System.in);
 
-		ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
+        ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
 
-
-		String username = getUsername();
+        String username = getUsername();
 		String password = getPassword();
 		String name = getName();
 		String mobile = getMobile();
 		String email = getEmail();
 		Integer age = getAge();
 
-		MovieGoer movieGoer = new MovieGoer(username, password, name, mobile, email, age);
-		
-		boolean isExist = false;
+
+        MovieGoer movieGoer = new MovieGoer(username, password, name, mobile, email, age);
+        
+        boolean isExist = false;
 
 		if (movieGoerList != null) {
 			for (int i = 0; i < movieGoerList.size(); i++) {
@@ -47,24 +47,29 @@ public class MovieGoerController {
 
 		}
 	}
-	
-	public static void movieGoerLogIn() throws Exception{
-		String username = getUsername();
-		String password = getPassword();
 
-		ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
-		MovieGoer movieGoer = null;
-		boolean isAuth = false;
-		
-		if (movieGoerList != null) {
-			for (int i = 0; i < movieGoerList.size(); i++) {
-				movieGoer = movieGoerList.get(i);
-				if (movieGoer.getUsername().equals(username) && movieGoer.getPassword().equals(password)) {
-					isAuth = true;
-					break;
-				}
-			}
-		}
+    public static void movieGoerLogIn() throws Exception{
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Enter username:");
+        String username = input.nextLine();
+
+        System.out.println("Enter password:");
+        String password = input.nextLine();
+
+        ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
+        MovieGoer movieGoer = null;
+        boolean isAuth = false;
+        
+        if (movieGoerList != null) {
+            for (int i = 0; i < movieGoerList.size(); i++) {
+                movieGoer = movieGoerList.get(i);
+                if (movieGoer.getUsername().equals(username) && movieGoer.getPassword().equals(password)) {
+                    isAuth = true;
+                    break;
+                }
+            }
+        }
 
 		if (isAuth) {
 			CommonUI.displaySingleMessage("Sign in successfully!");

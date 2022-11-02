@@ -39,8 +39,9 @@ public class AdminUI {
 					e.printStackTrace();
 				}
 				break;
+			case 3:  return;
 			default:
-				return;
+			    break;
 			}
 		}
 	}
@@ -70,8 +71,11 @@ public class AdminUI {
 			case 4:
                 displayAdminListTopMovieServicesUI();
                 break;
+			case 5:
+                AdminListTopMovieServicesUI();
+                return;
 			default:
-				return;
+				break;
 			}
 		}
 	}
@@ -120,7 +124,7 @@ public class AdminUI {
                 }
                 break;
 			default:
-				return;
+			    break;
 			}
 		}
 	}
@@ -183,7 +187,7 @@ public class AdminUI {
                     }
                     break;
                 default:
-                    return;
+                    break;
             }
         }
     }

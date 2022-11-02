@@ -40,7 +40,7 @@ public class MovieGoerUI {
 					}
 					break;
 				default:
-					return;
+					break;
 				}
 			}
 			
@@ -63,19 +63,32 @@ public class MovieGoerUI {
 	            choice = input.nextInt();
 
 	            switch (choice) {
-	            case 3:
-	                try {
-	                    MovieController.viewMovieDetail();
-	                } catch (Exception e) {
-	                    e.printStackTrace();
-	                }
-	                break;
-	            case 4:
-	                displayMovieGoerListTopMovieServicesUI();
-	                break;
-	            default:
-	                return;
-	            }
+
+	                case 1: 
+	                    // 1. View movie showtimes
+	                    break;
+	                case 2: 
+	                    // 2. Book a ticket
+	                    break;
+    	            case 3:
+    	                // 3. View movie details
+    	                try {
+    	                    MovieController.viewMovieDetail();
+    	                } catch (Exception e) {
+    	                    e.printStackTrace();
+    	                }
+    	                break;
+    	            case 4:
+    	                // 4. List top 5 movies
+    	                displayMovieGoerListTopMovieServicesUI();
+    	                break;
+    	            case 5: 
+    	                // 5. View booking history
+    	                break;
+    	            case 6: return; // 6. Exit
+    	            default:
+    	                break;
+    	            }
 	        }
 	    }
 
@@ -107,7 +120,7 @@ public class MovieGoerUI {
 	                    }
 	                    break;
 	                default:
-	                    return;
+	                    break;
 	            }
 	        }
 	    }
