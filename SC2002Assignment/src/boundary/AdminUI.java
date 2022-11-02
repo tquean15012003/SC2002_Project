@@ -71,9 +71,6 @@ public class AdminUI {
 			case 4:
                 displayAdminListTopMovieServicesUI();
                 break;
-			case 5:
-                displayAdminListTopMovieServicesUI();
-                return;
 			default:
 				break;
 			}

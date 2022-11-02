@@ -4,7 +4,7 @@ package entity;
  * This class contains all the information of a admin
  */
 
-public class Admin extends Account implements Serializable {
+public class Admin extends Account {
     /**
      * This method creates a Admin object with the given username, password and name
      * @param username the username of the admain
