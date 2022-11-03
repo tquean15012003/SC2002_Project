@@ -1,6 +1,12 @@
 package boundary;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
+import entity.Cinema;
+import entity.Cineplex;
+import entity.DataPath;
+import entity.Serialization;
 
 public class MainUI {
 	// Program entry
@@ -43,6 +49,7 @@ public class MainUI {
 //        cineplexes.add(cineplex3);
 //
 //        Serialization.writeSerializedObject(DataPath.CINEPLEX, cineplexes);
+        
 //        ArrayList<Cineplex> cineplexList = (ArrayList<Cineplex>) Serialization.readSerializedObject(DataPath.CINEPLEX);
 //        
 //        for (int i = 0; i < cineplexList.size(); i++) {

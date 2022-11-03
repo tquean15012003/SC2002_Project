@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import control.MovieController;
 import control.MovieGoerController;
+import control.ShowTimeController;
 import entity.MovieGoer;
 
 public class MovieGoerUI {
@@ -64,7 +65,12 @@ public class MovieGoerUI {
 	            switch (choice) {
 	                case 1: 
 	                    // 1. View movie showtimes
-	                    break;
+	                    try {
+                            ShowTimeController.viewShowTimeMovieGoer();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
 	                case 2: 
 	                    // 2. Book a ticket
 	                    break;

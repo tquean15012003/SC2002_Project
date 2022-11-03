@@ -5,6 +5,9 @@ package entity;
  */
 
 public class MovieGoer extends Account {
+    
+    private static final long serialVersionUID = 6L;
+
 	/**
 	 * The mobile number of the movie goer
 	 */

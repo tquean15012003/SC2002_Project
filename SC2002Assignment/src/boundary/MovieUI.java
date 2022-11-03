@@ -20,9 +20,9 @@ public class MovieUI {
         for (int i = 0; i < movie.getCast().size(); i++) {
             System.out.println(" *" + movie.getCast().get(i));
         }
-        System.out.println("Showing status: " + movie.getShowingStatus());
-        System.out.println("Release rating: " + movie.getReleaseRating());
-        System.out.println("Movie type: " + movie.getMovieType());
+        System.out.println("Showing status: " + movie.getShowingStatus().getLabel());
+        System.out.println("Release rating: " + movie.getReleaseRating().getLabel());
+        System.out.println("Movie type: " + movie.getMovieType().getLabel());
         System.out.println("Duration: " + movie.getDuration());
         System.out.println("Overall rating: " + movie.getOverallRating());
         System.out.println("Sale: " + movie.getSales() + "\n");

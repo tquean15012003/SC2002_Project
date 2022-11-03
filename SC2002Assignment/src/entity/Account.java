@@ -3,6 +3,9 @@ package entity;
 import java.io.Serializable;
 
 public class Account implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
+    
     /**
      * The username of the movie goer
      */

@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Cinema implements Serializable{
+    private static final long serialVersionUID = 3L;
+
     private String cinemaCode;
     
     private String cinemaClass;
@@ -25,5 +27,9 @@ public class Cinema implements Serializable{
     
     public ArrayList<ShowTime> getShowTimes() {
         return this.showTimes;
+    }
+    
+    public void setShowTimes(ArrayList<ShowTime> showTimes) {
+        this.showTimes = showTimes;
     }
 }

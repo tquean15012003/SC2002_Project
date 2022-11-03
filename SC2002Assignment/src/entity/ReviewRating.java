@@ -1,8 +1,12 @@
 package entity;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class ReviewRating {
+public class ReviewRating implements Serializable {
+    
+    private static final long serialVersionUID = 7L;
+
     /**
 	 * The minimum possible rating value
 	 */

@@ -7,26 +7,29 @@ import boundary.CommonUI;
 import boundary.MovieUI;
 import entity.DataPath;
 import entity.Movie;
+import entity.MovieType;
+import entity.ReleaseRating;
 import entity.Serialization;
+import entity.ShowingStatus;
 
 public class MovieController {
-    
+
     public static void viewMovieDetail() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
-        
+
         int choice = chooseMovieFromList(movieList);
-        
+
         if (choice == -1) {
             CommonUI.displaySingleMessage("\nThere is no movie now!\n");
             return;
         }
-        
+
         Movie movie = movieList.get(choice - 1);
-        
+
         MovieUI.displayMovieDetail(movie);
         return;
     }
-    
+
     public static void addMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
         if (movieList == null) {
@@ -37,39 +40,39 @@ public class MovieController {
         String synopsis = getSynopsis();
         String director = getDirector();
         ArrayList<String> cast = getCast();
-        String showingStatus = getShowingStatus();
-        String movieType = getMovieType();
+        ShowingStatus showingStatus = getShowingStatus();
+        MovieType movieType = getMovieType();
         String duration = getDuration();
-        String releaseRating = getReleaseRating();
-        
-        Movie movie = new Movie(title, synopsis,director, cast, showingStatus, movieType, releaseRating, duration);
-        
+        ReleaseRating releaseRating = getReleaseRating();
+
+        Movie movie = new Movie(title, synopsis, director, cast, showingStatus, movieType, releaseRating, duration);
+
         movieList.add(movie);
-        
+
         Serialization.writeSerializedObject(DataPath.MOVIE, movieList);
-        
+
         CommonUI.displaySingleMessage("The movie has been added!\n");
     }
-    
+
     public static void updateMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
-        
+
         int choice = chooseMovieFromList(movieList);
-        
+
         if (choice == -1) {
             CommonUI.displaySingleMessage("\nThere is no movie to update!\n");
             return;
         }
-        
+
         int index = choice - 1;
         Movie movie = movieList.get(index);
-        
+
         MovieUI.displayMovieUpdateOption();
         CommonUI.displaySingleMessage("Enter your choice:");
         Scanner input = new Scanner(System.in);
         choice = input.nextInt();
-        
-        switch(choice) {
+
+        switch (choice) {
             case 1:
                 movie.setTitle(getTitle());
                 break;
@@ -94,95 +97,89 @@ public class MovieController {
             case 8:
                 movie.setReleaseRating(getReleaseRating());
                 break;
-            default: 
+            default:
                 break;
         }
-        
+
         movieList.set(index, movie);
-        
+
         Serialization.writeSerializedObject(DataPath.MOVIE, movieList);
 
         CommonUI.displaySingleMessage("The movie has been updated!\n");
 
-
         return;
     }
-    
+
     public static void removeMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
-        
+
         int choice = chooseMovieFromList(movieList);
-        
+
         if (choice == -1) {
             CommonUI.displaySingleMessage("\nThere is no movie to remove!\n");
             return;
         }
-       
+
         movieList.remove(choice - 1);
-        
+
         Serialization.writeSerializedObject(DataPath.MOVIE, movieList);
 
         CommonUI.displaySingleMessage("The movie has been removed!\n");
 
         return;
     }
-    
-    
+
     public static void listTopMovieByRating() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
         if (movieList == null || movieList.size() == 0) {
             CommonUI.displaySingleMessage("\nThere is no movie now!\n");
             return;
         }
-        
-        for (int i = 1; i < movieList.size(); i++)
-        {
+
+        for (int i = 1; i < movieList.size(); i++) {
             for (int j = i; j > 0; j--) {
-                if (movieList.get(j).getOverallRating() > movieList.get(j-1).getOverallRating()) {
+                if (movieList.get(j).getOverallRating() > movieList.get(j - 1).getOverallRating()) {
                     Movie movie = movieList.get(j);
-                    movieList.set(j, movieList.get(j-1));
+                    movieList.set(j, movieList.get(j - 1));
                     movieList.set(j - 1, movie);
                 } else {
                     break;
                 }
             }
         }
-        
+
         MovieUI.displayTopMovieByOverallRating(movieList);
     }
-    
-    
+
     public static void listTopMovieBySales() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
         if (movieList == null || movieList.size() == 0) {
             CommonUI.displaySingleMessage("\nThere is no movie now!\n");
             return;
         }
-        
-        for (int i = 1; i < movieList.size(); i++)
-        {
+
+        for (int i = 1; i < movieList.size(); i++) {
             for (int j = i; j > 0; j--) {
-                if (movieList.get(j).getSales() > movieList.get(j-1).getSales()) {
+                if (movieList.get(j).getSales() > movieList.get(j - 1).getSales()) {
                     Movie movie = movieList.get(j);
-                    movieList.set(j, movieList.get(j-1));
+                    movieList.set(j, movieList.get(j - 1));
                     movieList.set(j - 1, movie);
                 } else {
                     break;
                 }
             }
         }
-        
+
         MovieUI.displayTopMovieBySales(movieList);
-        
+
     }
-    
+
     public static int chooseMovieFromList(ArrayList<Movie> movieList) {
         int choice = -1;
         if (movieList == null || movieList.size() == 0) {
             return choice;
         }
 
-        
         choice = 0;
         Scanner input = new Scanner(System.in);
         while (choice < 1 || choice > movieList.size()) {
@@ -192,32 +189,31 @@ public class MovieController {
         }
         return choice;
     }
-    
-    
+
     private static String getTitle() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter title:");
         String title = input.nextLine();
         return title;
     }
-    
+
     private static String getSynopsis() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter synopsis:");
         String synopsis = input.nextLine();
         return synopsis;
     }
-    
+
     private static String getDirector() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter director:");
         String director = input.nextLine();
         return director;
     }
-    
+
     private static ArrayList<String> getCast() {
         ArrayList<String> cast = new ArrayList<String>();
-        
+
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter cast size:");
         Integer castSize = input.nextInt();
@@ -227,98 +223,112 @@ public class MovieController {
             String castName = input.nextLine();
             cast.add(castName);
         }
-        
+
         return cast;
     }
-    
-    private static String getShowingStatus() {
+
+    private static ShowingStatus getShowingStatus() {
         int choice = 0;
-        String showingStatus = "";
+        ShowingStatus showingStatus;
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("==== Please choose showing status ====");
-        while (choice != 1) {
-            CommonUI.displaySingleMessage("1. Coming soon\n2. Preview\n3. Now showing\n4. End of showing\nEnter your choice:");
+        CommonUI.displaySingleMessage(
+                "1. Coming soon\n2. Preview\n3. Now showing\n4. End of showing\nEnter your choice:");
 
-            choice = input.nextInt();
+        choice = input.nextInt();
 
-            switch (choice) {
+        switch (choice) {
             case 1:
-                return "Coming soon";
+                showingStatus = ShowingStatus.COMING_SOON;
+                break;
             case 2:
-                return "preview";
+                showingStatus = ShowingStatus.PREVIEW;
+                break;
             case 3:
-                return "Now showing";
+                showingStatus = ShowingStatus.NOW_SHOWING;
+                break;
             case 4:
-                return "End of showing";
+                showingStatus = ShowingStatus.END_OF_SHOWING;
+                break;
             default:
-                return "End of showing";
-            }
+                showingStatus = ShowingStatus.END_OF_SHOWING;
+                break;
         }
-        return "End of showing";
+
+        return showingStatus;
     }
-    
-    private static String getMovieType() {
+
+    private static MovieType getMovieType() {
         int choice = 0;
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("==== Please choose movie type ====");
-        
-        while (choice != 1) {
-            CommonUI.displaySingleMessage("1. Regular\n2. Blockbuster\n3. 3D\nEnter your choice:");
+        MovieType movieType;
 
-            choice = input.nextInt();
+        CommonUI.displaySingleMessage("1. Regular\n2. Blockbuster\n3. 3D\nEnter your choice:");
 
-            switch (choice) {
+        choice = input.nextInt();
+
+        switch (choice) {
             case 1:
-                return "Regular";
+                movieType = MovieType.REGULAR;
+                break;
             case 2:
-                return "Blockbuster";
+                movieType = MovieType.BLOCKBUSTER;
+                break;
             case 3:
-                return "3D";
+                movieType = MovieType._3D;
+                break;
             default:
-                return "Regular";
-            }
+                movieType = MovieType.REGULAR;
+                break;
         }
-        
-        return "Regular";
+
+        return movieType;
     }
-    
-    private static String getReleaseRating() {
+
+    private static ReleaseRating getReleaseRating() {
         int choice = 0;
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("==== Please choose release rating ====");
 
-        while (choice != 1) {
-            CommonUI.displaySingleMessage("1. G\n2. PG\n3. PG13\n4. NC16\n5. M18\n6. R21\nEnter your choice:");
-
-            choice = input.nextInt();
-
-            switch (choice) {
-            case 1:
-                return "G";
-            case 2:
-                return "PG";
-            case 3:
-                return "PG13";
-            case 4:
-                return "NC16";
-            case 5:
-                return "M18";
-            case 6:
-                return "R21";
-            default:
-                return "G";
-            }
-        }
+        ReleaseRating releaseRating;
         
-        return "G";
+        CommonUI.displaySingleMessage("1. G\n2. PG\n3. PG13\n4. NC16\n5. M18\n6. R21\nEnter your choice:");
+
+        choice = input.nextInt();
+
+        switch (choice) {
+            case 1:
+                releaseRating = ReleaseRating.G;
+                break;
+            case 2:
+                releaseRating = ReleaseRating.PG;
+                break;
+            case 3:
+                releaseRating = ReleaseRating.PG13;
+                break;
+            case 4:
+                releaseRating = ReleaseRating.NC16;
+                break;
+            case 5:
+                releaseRating = ReleaseRating.M18;
+                break;
+            case 6:
+                releaseRating = ReleaseRating.R21;
+                break;
+            default:
+                releaseRating = ReleaseRating.G;
+                break;
+        }
+
+        return releaseRating;
     }
-    
+
     private static String getDuration() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter duration (in minutes):");
         String duration = input.nextLine();
         return duration;
     }
-    
-    
+
 }

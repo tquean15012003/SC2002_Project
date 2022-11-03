@@ -6,6 +6,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Booking implements Serializable{
+    private static final long serialVersionUID = 2L;
+
     private MovieGoer movieGoer;
     
     private Double price;

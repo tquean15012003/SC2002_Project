@@ -4,6 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Movie implements Serializable{
+    
+    private static final long serialVersionUID = 5L;
+
 
 	/**
 	 * The title of the movie
@@ -28,17 +31,17 @@ public class Movie implements Serializable{
 	/**
 	 * The showing status of the movie
 	 */
-	private String showingStatus;
+	private ShowingStatus showingStatus;
 
 	/**
 	 * The movie type of the movie
 	 */
-	private String movieType;
+	private MovieType movieType;
 
 	/**
      * The movie type of the movie
      */
-    private String releaseRating;
+    private ReleaseRating releaseRating;
     
 	/**
 	 * The list of review ratings of the movie
@@ -55,7 +58,7 @@ public class Movie implements Serializable{
 	/**
 	 * Creates a {@code Movie} object with the given title, synopsis, director, cast, showing status, release rating, movie type
 	 */
-	public Movie(String title, String synopsis, String director, ArrayList<String> cast, String showingStatus, String movieType, String releaseRating, String duration) {
+	public Movie(String title, String synopsis, String director, ArrayList<String> cast, ShowingStatus showingStatus, MovieType movieType, ReleaseRating releaseRating, String duration) {
         this.title = title;
         this.synopsis = synopsis;
         this.director = director;
@@ -99,27 +102,27 @@ public class Movie implements Serializable{
         this.cast = cast;
     }
     
-    public String getShowingStatus() {
+    public ShowingStatus getShowingStatus() {
         return showingStatus;
     }
 
-    public void setShowingStatus(String showingStatus) {
+    public void setShowingStatus(ShowingStatus showingStatus) {
         this.showingStatus = showingStatus;
     }
 
-    public String getMovieType() {
+    public MovieType getMovieType() {
         return movieType;
     }
     
-    public void setReleaseRating(String releaseRating) {
+    public void setReleaseRating(ReleaseRating releaseRating) {
         this.releaseRating = releaseRating;
     }
     
-    public String getReleaseRating() {
+    public ReleaseRating getReleaseRating() {
         return this.releaseRating;
     }
     
-    public void setMovieType(String movieType) {
+    public void setMovieType(MovieType movieType) {
         this.movieType = movieType;
     }
 
