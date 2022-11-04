@@ -8,11 +8,11 @@ public class Cinema implements Serializable{
 
     private String cinemaCode;
     
-    private String cinemaClass;
+    private CinemaClass cinemaClass;
     
     private ArrayList<ShowTime> showTimes = new ArrayList<ShowTime>();
     
-    public Cinema(String cinemaCode, String cinemaClass) {
+    public Cinema(String cinemaCode, CinemaClass cinemaClass) {
         this.cinemaCode = cinemaCode;
         this.cinemaClass = cinemaClass;
     }
@@ -21,7 +21,7 @@ public class Cinema implements Serializable{
         return this.cinemaCode;
     }
     
-    public String getCinemaClass() {
+    public CinemaClass getCinemaClass() {
         return this.cinemaClass;
     }
     

@@ -223,7 +223,7 @@ public class ShowTimeController {
         }
         
         if (cineplexList == null || cineplexList.size() == 0) {
-            CommonUI.displaySingleMessage("\nThere is no cineplex to add a showtime!\n");
+            CommonUI.displaySingleMessage("\nThere is no cineplex to remove a showtime!\n");
             return;
         }
         
@@ -268,7 +268,7 @@ public class ShowTimeController {
             
     }
     
-    public static LocalDateTime getDateTime() {
+    private static LocalDateTime getDateTime() {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
         Scanner input = new Scanner(System.in);
         while (true) {

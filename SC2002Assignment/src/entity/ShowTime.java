@@ -12,7 +12,7 @@ public class ShowTime implements Serializable{
     
     private String cinemaCode;
     
-    private String[][] layout = new String[10][10];
+    private Seat[][] layout = new Seat[10][10];
     
     public ShowTime(LocalDateTime startDateTime, Movie movie, String cinemaCode) {
         this.startDateTime = startDateTime;
@@ -20,8 +20,11 @@ public class ShowTime implements Serializable{
         this.cinemaCode = cinemaCode;
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                this.layout[i][j]= "";
+                this.layout[i][j] = new Seat("", SeatType.NORMAL);
             }
+        }
+        for (int i = 0; i < 10; i++)  {
+            this.layout[9][i].setSeatType(SeatType.PREMIUM);
         }
     }
     
@@ -49,11 +52,11 @@ public class ShowTime implements Serializable{
         this.cinemaCode = cinemaCode;
     }
     
-    public String[][] getLayout() {
+    public Seat[][] getLayout() {
         return this.layout;
     }
     
     public void takeSeat(Integer row, Integer column, String transactionId) {
-        this.layout[row][column] = transactionId;
+        this.layout[row][column].setTransactionId(transactionId);
     }
 }

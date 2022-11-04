@@ -33,7 +33,7 @@ public class ReviewRating implements Serializable {
 	 * Creates a {@code ReviewRating} object with the given movie goer, review and rating
 	 * @param movieGoer the movie goer who made the review rating
 	 */
-    ReviewRating(MovieGoer movieGoer, String review) {
+    public ReviewRating(MovieGoer movieGoer, String review) {
         this.movieGoer = movieGoer;
 
         this.review = review;

@@ -2,6 +2,7 @@ package boundary;
 
 import java.util.Scanner;
 
+import control.BookingController;
 import control.MovieController;
 import control.MovieGoerController;
 import control.ShowTimeController;
@@ -51,13 +52,15 @@ public class MovieGoerUI {
 	        System.out.println("Hi " + movieGoer.getName());
 	        System.out.println("===== What would you like to do? =====");
 
-	        while (choice != 6) {
+	        while (choice != 8) {
 	            System.out.println("1. View movie showtimes");
-	            System.out.println("2. Book a ticket");
-	            System.out.println("3. View movie details");
-	            System.out.println("4. List top 5 movies");
-	            System.out.println("5. View booking history");
-	            System.out.println("6. Exit");
+	            System.out.println("2. Search movie");
+	            System.out.println("3. Book a ticket");
+	            System.out.println("4. View movie details");
+	            System.out.println("5. List top 5 movies");
+	            System.out.println("6. View booking history");
+	            System.out.println("7. Write review");
+	            System.out.println("8. Exit");
 	            System.out.println("Enter your choice:");
 
 	            choice = input.nextInt();
@@ -72,9 +75,22 @@ public class MovieGoerUI {
                         }
                         break;
 	                case 2: 
+                        // 1. Search movie 
+                        try {
+                            MovieController.searchMovieDetail();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
+	                case 3: 
 	                    // 2. Book a ticket
+	                    try {
+	                        BookingController.bookingTicket(movieGoer);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
 	                    break;
-    	            case 3:
+    	            case 4:
     	                // 3. View movie details
     	                try {
     	                    MovieController.viewMovieDetail();
@@ -82,13 +98,26 @@ public class MovieGoerUI {
     	                    e.printStackTrace();
     	                }
     	                break;
-    	            case 4:
+    	            case 5:
     	                // 4. List top 5 movies
     	                displayMovieGoerListTopMovieServicesUI();
     	                break;
-    	            case 5: 
+    	            case 6: 
     	                // 5. View booking history
+    	                try {
+                            BookingController.viewHistory(movieGoer);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
     	                break;
+    	            case 7: 
+                        // 6. Write review
+                        try {
+                            MovieController.writeReview(movieGoer);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
     	            default:
     	                break;
     	            }

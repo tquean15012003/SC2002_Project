@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import entity.Cinema;
+import entity.CinemaClass;
 import entity.Cineplex;
 import entity.DataPath;
 import entity.Serialization;
@@ -17,27 +18,27 @@ public class MainUI {
 		
 //		ArrayList<Cineplex> cineplexes = new ArrayList<Cineplex>();
 //		
-//		Cinema cinema1 = new Cinema("GV1", "Normal");
-//		Cinema cinema2 = new Cinema("GV2", "Normal");
-//		Cinema cinema3 = new Cinema("GV3", "Platinum movie suites");
+//		Cinema cinema1 = new Cinema("GV1", CinemaClass.NORMAL);
+//		Cinema cinema2 = new Cinema("GV2", CinemaClass.NORMAL);
+//		Cinema cinema3 = new Cinema("GV3", CinemaClass.PLATINUM_MOVIE_SUITE);
 //	    
 //	    Cineplex cineplex1 = new Cineplex("Golden Village");
 //	    cineplex1.getCinemas().add(cinema1);
 //        cineplex1.getCinemas().add(cinema2);
 //        cineplex1.getCinemas().add(cinema3);
 //        
-//        Cinema cinema4 = new Cinema("CC1", "Normal");
-//        Cinema cinema5 = new Cinema("CC2", "Normal");
-//        Cinema cinema6 = new Cinema("CC3", "Platinum movie suites");
+//        Cinema cinema4 = new Cinema("CC1", CinemaClass.NORMAL);
+//        Cinema cinema5 = new Cinema("CC2", CinemaClass.NORMAL);
+//        Cinema cinema6 = new Cinema("CC3", CinemaClass.PLATINUM_MOVIE_SUITE);
 //        
 //        Cineplex cineplex2 = new Cineplex("Cathay Cineplex");
 //        cineplex2.getCinemas().add(cinema4);
 //        cineplex2.getCinemas().add(cinema5);
 //        cineplex2.getCinemas().add(cinema6);
 //        
-//        Cinema cinema7 = new Cinema("ST1", "Normal");
-//        Cinema cinema8 = new Cinema("ST2", "Normal");
-//        Cinema cinema9 = new Cinema("ST3", "Platinum movie suites");
+//        Cinema cinema7 = new Cinema("ST1", CinemaClass.NORMAL);
+//        Cinema cinema8 = new Cinema("ST2", CinemaClass.NORMAL);
+//        Cinema cinema9 = new Cinema("ST3", CinemaClass.PLATINUM_MOVIE_SUITE);
 //        
 //        Cineplex cineplex3 = new Cineplex("Shaw Theatres");
 //        cineplex3.getCinemas().add(cinema7);
@@ -49,7 +50,7 @@ public class MainUI {
 //        cineplexes.add(cineplex3);
 //
 //        Serialization.writeSerializedObject(DataPath.CINEPLEX, cineplexes);
-        
+//        
 //        ArrayList<Cineplex> cineplexList = (ArrayList<Cineplex>) Serialization.readSerializedObject(DataPath.CINEPLEX);
 //        
 //        for (int i = 0; i < cineplexList.size(); i++) {

@@ -16,19 +16,18 @@ public class Booking implements Serializable{
     
     private ArrayList<Ticket> tickets;
     
-    public Booking(MovieGoer movieGoer, Double price, String transactionId, ArrayList<Ticket> tickets) {
+    private String cineplexName;
+        
+    private ShowTime showTime;
+    
+    public Booking(MovieGoer movieGoer, Double price, String transactionId, ArrayList<Ticket> tickets, String cineplexName, ShowTime showTime) {
         this.movieGoer = movieGoer;
         this.price = price;
         this.transactionId = transactionId;
         this.tickets = tickets;
+        this.cineplexName = cineplexName;
+        this.showTime = showTime;
     }
-    
-//    public String generateTransactionId(Cinema cinema) {
-//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
-//        String transaction = cinema.getCinemaCode() + LocalDateTime.now().format(formatter);
-//        return transaction;
-//        
-//    }
     
     public MovieGoer getMovieGoer() {
         return this.movieGoer;
@@ -44,5 +43,13 @@ public class Booking implements Serializable{
     
     public ArrayList<Ticket> tickets() {
         return this.tickets;
+    }
+    
+    public String getCineplexName() {
+        return this.cineplexName;
+    }
+    
+    public ShowTime getShowTime() {
+        return this.showTime;
     }
 }

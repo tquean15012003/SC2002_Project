@@ -72,10 +72,10 @@ public class MovieGoerController {
         }
 
 		if (isAuth) {
-			CommonUI.displaySingleMessage("Sign in successfully!");
+			CommonUI.displaySingleMessage("Sign in successfully!\n");
 	         MovieGoerUI.displayMovieGoerServicesUI(movieGoer);
 		} else {
-	         CommonUI.displaySingleMessage("Username or password is not valid!");
+	         CommonUI.displaySingleMessage("Username or password is not valid!\n");
 		}
 	}
 	

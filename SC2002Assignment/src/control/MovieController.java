@@ -7,8 +7,10 @@ import boundary.CommonUI;
 import boundary.MovieUI;
 import entity.DataPath;
 import entity.Movie;
+import entity.MovieGoer;
 import entity.MovieType;
 import entity.ReleaseRating;
+import entity.ReviewRating;
 import entity.Serialization;
 import entity.ShowingStatus;
 
@@ -29,6 +31,39 @@ public class MovieController {
         MovieUI.displayMovieDetail(movie);
         return;
     }
+    
+    public static void searchMovieDetail() {
+        ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
+
+        if (movieList == null || movieList.size() == 0) {
+            CommonUI.displaySingleMessage("\nThere is no movie now!\n");
+            return;
+        }
+        
+        String keyword = getKeyWord();
+
+        ArrayList<Movie> movieListToShow = new ArrayList<Movie>();
+        
+        for (int i = 0; i < movieList.size(); i++) {
+            Movie movie = movieList.get(i);
+            if (movie.getTitle().contains(keyword)) {
+                movieListToShow.add(movie);
+            }
+        }
+        
+        int choice = chooseMovieFromList(movieListToShow);
+
+        if (choice == -1) {
+            CommonUI.displaySingleMessage("\nThere is no movie now!\n");
+            return;
+        }
+
+        Movie movie = movieList.get(choice - 1);
+
+        MovieUI.displayMovieDetail(movie);
+        return;
+    }
+
 
     public static void addMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
@@ -174,6 +209,25 @@ public class MovieController {
 
     }
 
+    public static void writeReview(MovieGoer movieGoer) {
+        ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
+
+        int choice = chooseMovieFromList(movieList);
+
+        if (choice == -1) {
+            CommonUI.displaySingleMessage("\nThere is no movie to write review!\n");
+            return;
+        }
+
+        int index = choice - 1;
+        Movie movie = movieList.get(index);
+
+        ReviewRating review = new ReviewRating(movieGoer,getReview());
+        
+        movie.addReviewRating(review);
+        Serialization.writeSerializedObject(DataPath.MOVIE, movieList);
+    }
+    
     public static int chooseMovieFromList(ArrayList<Movie> movieList) {
         int choice = -1;
         if (movieList == null || movieList.size() == 0) {
@@ -330,5 +384,20 @@ public class MovieController {
         String duration = input.nextLine();
         return duration;
     }
+    
+    private static String getReview() {
+        Scanner input = new Scanner(System.in);
+        CommonUI.displaySingleMessage("Enter review:");
+        String review = input.nextLine();
+        return review;
+    }
+    
+    private static String getKeyWord() {
+        Scanner input = new Scanner(System.in);
+        CommonUI.displaySingleMessage("Enter a key word:");
+        String keyWord = input.nextLine();
+        return keyWord;
+    }
+
 
 }

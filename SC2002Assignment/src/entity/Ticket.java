@@ -11,7 +11,7 @@ public class Ticket implements Serializable{
     
     private Integer column;
         
-    Ticket(Integer row, Integer column) {
+    public Ticket(Integer row, Integer column) {
         this.row = row;
         this.column = column;
     }

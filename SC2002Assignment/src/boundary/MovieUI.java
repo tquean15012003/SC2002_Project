@@ -3,6 +3,7 @@ package boundary;
 import java.util.ArrayList;
 
 import entity.Movie;
+import entity.ReviewRating;
 
 public class MovieUI {
     public static void displayMovieList(ArrayList<Movie> movieList) {
@@ -25,6 +26,15 @@ public class MovieUI {
         System.out.println("Movie type: " + movie.getMovieType().getLabel());
         System.out.println("Duration: " + movie.getDuration());
         System.out.println("Overall rating: " + movie.getOverallRating());
+        if (movie.getReviewRatings().size() > 0) {
+            System.out.println("Review(s):");
+            ArrayList<ReviewRating> reviewList = movie.getReviewRatings();
+            for (int j = 0; j < reviewList.size(); j++) {
+                ReviewRating review = reviewList.get(j);
+                System.out.println("\t" + (j + 1) + ". Review from " + review.getMovieGoer().getName() + " - " + review.getRating());
+                System.out.println("\t" + review.getReview());
+            }
+        }
         System.out.println("Sale: " + movie.getSales() + "\n");
     }
     
