@@ -15,7 +15,18 @@ public class MovieGoerController {
 
         ArrayList<MovieGoer> movieGoerList = (ArrayList<MovieGoer>) Serialization.readSerializedObject(DataPath.MOVIEGOER);
 
+        
         String username = getUsername();
+        
+        if (movieGoerList != null) {
+            for (int i = 0; i < movieGoerList.size(); i++) {
+                if (movieGoerList.get(i).getUsername().equals(username)) {
+                    CommonUI.displaySingleMessage("Movie goer username already exist!\n");
+                    return;
+                }
+            }
+        }
+        
 		String password = getPassword();
 		String name = getName();
 		String mobile = getMobile();
