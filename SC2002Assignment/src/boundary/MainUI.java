@@ -22,25 +22,25 @@ public class MainUI {
 //		Cinema cinema2 = new Cinema("GV2", CinemaClass.NORMAL);
 //		Cinema cinema3 = new Cinema("GV3", CinemaClass.PLATINUM_MOVIE_SUITE);
 //	    
-//	    Cineplex cineplex1 = new Cineplex("Golden Village");
+//	    Cineplex cineplex1 = new Cineplex("Golden Village Jurong Point");
 //	    cineplex1.getCinemas().add(cinema1);
 //        cineplex1.getCinemas().add(cinema2);
 //        cineplex1.getCinemas().add(cinema3);
 //        
-//        Cinema cinema4 = new Cinema("CC1", CinemaClass.NORMAL);
-//        Cinema cinema5 = new Cinema("CC2", CinemaClass.NORMAL);
-//        Cinema cinema6 = new Cinema("CC3", CinemaClass.PLATINUM_MOVIE_SUITE);
+//        Cinema cinema4 = new Cinema("GV4", CinemaClass.NORMAL);
+//        Cinema cinema5 = new Cinema("GV5", CinemaClass.NORMAL);
+//        Cinema cinema6 = new Cinema("GV6", CinemaClass.PLATINUM_MOVIE_SUITE);
 //        
-//        Cineplex cineplex2 = new Cineplex("Cathay Cineplex");
+//        Cineplex cineplex2 = new Cineplex("Golden Village Vivo");
 //        cineplex2.getCinemas().add(cinema4);
 //        cineplex2.getCinemas().add(cinema5);
 //        cineplex2.getCinemas().add(cinema6);
 //        
-//        Cinema cinema7 = new Cinema("ST1", CinemaClass.NORMAL);
-//        Cinema cinema8 = new Cinema("ST2", CinemaClass.NORMAL);
-//        Cinema cinema9 = new Cinema("ST3", CinemaClass.PLATINUM_MOVIE_SUITE);
+//        Cinema cinema7 = new Cinema("GV7", CinemaClass.NORMAL);
+//        Cinema cinema8 = new Cinema("GV8", CinemaClass.NORMAL);
+//        Cinema cinema9 = new Cinema("GV9", CinemaClass.PLATINUM_MOVIE_SUITE);
 //        
-//        Cineplex cineplex3 = new Cineplex("Shaw Theatres");
+//        Cineplex cineplex3 = new Cineplex("Golden Village Tampines");
 //        cineplex3.getCinemas().add(cinema7);
 //        cineplex3.getCinemas().add(cinema8);
 //        cineplex3.getCinemas().add(cinema9);

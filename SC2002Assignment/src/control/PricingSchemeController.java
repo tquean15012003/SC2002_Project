@@ -21,6 +21,10 @@ public class PricingSchemeController {
     public static void modifyBasePrice() {
         PricingScheme pricingScheme = (PricingScheme) Serialization.readSerializedObject(DataPath.PRCING_SCHEME);
         
+        if (pricingScheme == null) {
+            pricingScheme = new PricingScheme();
+        }
+        
         CommonUI.displaySingleMessage("Current base price: " + pricingScheme.getBasePrice());
         pricingScheme.setBasePrice(getBasePrice());
         Serialization.writeSerializedObject(DataPath.PRCING_SCHEME, pricingScheme);
@@ -39,6 +43,11 @@ public class PricingSchemeController {
     
     public static void updateAgeGroupMutiplier() {
         PricingScheme pricingScheme = (PricingScheme) Serialization.readSerializedObject(DataPath.PRCING_SCHEME);
+        
+        if (pricingScheme == null) {
+            pricingScheme = new PricingScheme();
+        }
+        
         AgeGroup ageGroup = getAgeGroup();
         CommonUI.displaySingleMessage("Current multiplier: " + pricingScheme.getAgeMultiplier(ageGroup));
         pricingScheme.setAgeMultiplier(ageGroup, getMultiplier());
@@ -49,6 +58,11 @@ public class PricingSchemeController {
     
     public static void updateMovieTypeMutiplier() {
         PricingScheme pricingScheme = (PricingScheme) Serialization.readSerializedObject(DataPath.PRCING_SCHEME);
+        
+        if (pricingScheme == null) {
+            pricingScheme = new PricingScheme();
+        }
+        
         MovieType movieType = getMovieType();
         CommonUI.displaySingleMessage("Current multiplier: " + pricingScheme.getMovieMultiplier(movieType));
         pricingScheme.setMovieMultiplier(movieType, getMultiplier());
@@ -59,6 +73,11 @@ public class PricingSchemeController {
     
     public static void updateDateTypeMutiplier() {
         PricingScheme pricingScheme = (PricingScheme) Serialization.readSerializedObject(DataPath.PRCING_SCHEME);
+        
+        if (pricingScheme == null) {
+            pricingScheme = new PricingScheme();
+        }
+        
         DateType dateType = getDateType();
         CommonUI.displaySingleMessage("Current multiplier: " + pricingScheme.getDateMultiplier(dateType));
         pricingScheme.setDateMultiplier(dateType, getMultiplier());
@@ -69,6 +88,11 @@ public class PricingSchemeController {
     
     public static void updateSeatTypeMutiplier() {
         PricingScheme pricingScheme = (PricingScheme) Serialization.readSerializedObject(DataPath.PRCING_SCHEME);
+        
+        if (pricingScheme == null) {
+            pricingScheme = new PricingScheme();
+        }
+        
         SeatType seatType = getSeatType();
         CommonUI.displaySingleMessage("Current multiplier: " + pricingScheme.getSeatMultiplier(seatType));
         pricingScheme.setSeatMultiplier(seatType, getMultiplier());
@@ -79,6 +103,10 @@ public class PricingSchemeController {
     
     public static void addHoliday() {
         PricingScheme pricingScheme = (PricingScheme) Serialization.readSerializedObject(DataPath.PRCING_SCHEME);
+        
+        if (pricingScheme == null) {
+            pricingScheme = new PricingScheme();
+        }
         
         LocalDate localDate = getLocalDate();
         
@@ -94,7 +122,9 @@ public class PricingSchemeController {
     public static void removeHoliday() {
         PricingScheme pricingScheme = (PricingScheme) Serialization.readSerializedObject(DataPath.PRCING_SCHEME);
         
-
+        if (pricingScheme == null) {
+            pricingScheme = new PricingScheme();
+        }
         
         int choice = chooseHolidayFromList(pricingScheme.getHolidayDates());
 
