@@ -104,6 +104,7 @@ public class ShowTimeController {
             Serialization.writeSerializedObject(DataPath.CINEPLEX, cineplexList);
             
             CommonUI.displaySingleMessage("Create show time successfully!\n");
+            
         }
             
     }

@@ -153,12 +153,12 @@ public class PricingSchemeController {
         Scanner input = new Scanner(System.in);
         while (true) {
             try {
-                CommonUI.displaySingleMessage("Enter start date & time (dd/mm/yyyy): ");
+                CommonUI.displaySingleMessage("Enter start date (dd/mm/yyyy): ");
                 String dateTimeString = input.nextLine();
                 return LocalDate.parse(dateTimeString, formatter);
                 
             } catch (DateTimeParseException e) {
-                CommonUI.displaySingleMessage("Please enter a valid date time of format: dd/mm/yyyy");
+                CommonUI.displaySingleMessage("Please enter a valid date (dd/mm/yyyy):");
             }
         }
     }

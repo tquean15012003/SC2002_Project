@@ -10,20 +10,18 @@ import entity.DataPath;
 import entity.Serialization;
 
 public class MainUI {
-	// Program entry
 	
 	public static void main(String[] args) throws Exception {
 		Scanner input = new Scanner(System.in);
 		int choice = 0;
 		
-//		ArrayList<Cineplex> cineplexes = new ArrayList<Cineplex>();
-//		
-//		Cinema cinema1 = new Cinema("GV1", CinemaClass.NORMAL);
-//		Cinema cinema2 = new Cinema("GV2", CinemaClass.NORMAL);
-//		Cinema cinema3 = new Cinema("GV3", CinemaClass.PLATINUM_MOVIE_SUITE);
-//	    
-//	    Cineplex cineplex1 = new Cineplex("Golden Village Jurong Point");
-//	    cineplex1.getCinemas().add(cinema1);
+//      ArrayList<Cineplex> cineplexes = new ArrayList<Cineplex>();
+//      
+//      Cinema cinema1 = new Cinema("GV1", CinemaClass.NORMAL);
+//      Cinema cinema2 = new Cinema("GV2", CinemaClass.NORMAL);
+//      Cinema cinema3 = new Cinema("GV3", CinemaClass.PLATINUM_MOVIE_SUITE);
+//      Cineplex cineplex1 = new Cineplex("Golden Village Jurong Point");
+//      cineplex1.getCinemas().add(cinema1);
 //        cineplex1.getCinemas().add(cinema2);
 //        cineplex1.getCinemas().add(cinema3);
 //        
@@ -60,7 +58,6 @@ public class MainUI {
 //                System.out.println(cineplex.getCinemas().get(j).getCinemaCode());
 //            }
 //        }
-
 		
 		System.out.println("===== Welcome to MOBLIMA =====");
 	
