@@ -5,7 +5,14 @@ import java.util.ArrayList;
 import entity.Movie;
 import entity.ReviewRating;
 
+/**
+ * This class contains methods to display all movie-related UI
+ */
 public class MovieUI {
+    /**
+     * The method displays the movie list
+     * @param movieList the array list of movie object
+     */
     public static void displayMovieList(ArrayList<Movie> movieList) {
         System.out.println("\nMovie list:");
         for (int i = 0; i < movieList.size(); i++) {
@@ -13,6 +20,10 @@ public class MovieUI {
         }
     }
     
+    /**
+     * The method displays the detail of a movie
+     * @param movie the movie object
+     */
     public static void displayMovieDetail(Movie movie) {
         System.out.println("\nTitle: " + movie.getTitle());
         System.out.println("Synopsis: " + movie.getSynopsis());
@@ -38,6 +49,9 @@ public class MovieUI {
         System.out.println("Sale: " + movie.getSales() + "\n");
     }
     
+    /**
+     * The method displays updating options of a movie
+     */
     public static void displayMovieUpdateOption() {
         System.out.println("\nWhat would you want to update?");
         System.out.println("1. Title");
@@ -50,6 +64,10 @@ public class MovieUI {
         System.out.println("8. Release rating: ");
     }
     
+    /**
+     * The method displays top 5 movies sorted by overall rating
+     * @param movieList the array list of movie object
+     */
     public static void displayTopMovieByOverallRating(ArrayList<Movie> movieList) {
         System.out.println("\nTop movies by overall rating:");
         int size = movieList.size() < 5 ? movieList.size() : 5;
@@ -59,6 +77,10 @@ public class MovieUI {
         System.out.println();
     }
     
+    /**
+     * The method displays top 5 movies sorted by sales
+     * @param movieList the array list of movie object
+     */
     public static void displayTopMovieBySales(ArrayList<Movie> movieList) {
         System.out.println("\nTop movies by sales:");
         int size = movieList.size() < 5 ? movieList.size() : 5;

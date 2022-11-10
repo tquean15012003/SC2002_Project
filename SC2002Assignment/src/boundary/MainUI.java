@@ -9,8 +9,16 @@ import entity.Cineplex;
 import entity.DataPath;
 import entity.Serialization;
 
+/**
+ * This class is the main class of the application.
+ */
 public class MainUI {
-	
+    
+    /**
+     * The main function that launches the application
+     * @param args unused
+     * @throws error
+     */
 	public static void main(String[] args) throws Exception {
 		Scanner input = new Scanner(System.in);
 		int choice = 0;

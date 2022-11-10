@@ -12,7 +12,15 @@ import entity.Serialization;
 import entity.ShowTime;
 import entity.ShowingStatus;
 
+/**
+ * This class contains methods to display all show-time-related UI
+ */
 public class ShowTimeUI {
+    
+    /**
+     * The method displays the all cineplexes
+     * @param cineplexList the list of cineplex
+     */
     public static void displayCineplexList(ArrayList<Cineplex> cineplexList) {
         System.out.println("\nCineplex list:");
         for (int i = 0; i < cineplexList.size(); i++) {
@@ -20,6 +28,10 @@ public class ShowTimeUI {
         }
     }
     
+    /**
+     * The method displays all cinemas of a cineplex
+     * @param cineplex that contains cinemas
+     */
     public static void displayCinemaList(Cineplex cineplex) {
         System.out.println("\nCinema list:");
         for (int i = 0; i < cineplex.getCinemas().size(); i++) {
@@ -27,6 +39,10 @@ public class ShowTimeUI {
         }
     }
     
+    /**
+     * The method displays all showtimes of a cinemas
+     * @param showTimeList the list of show times
+     */
     public static void displayShowTimeList(ArrayList<ShowTime> showTimeList) {
         System.out.println("\nShow time list:");
         for (int i = 0; i < showTimeList.size(); i++) {
@@ -35,12 +51,19 @@ public class ShowTimeUI {
         }
     }
     
+    /**
+     * The method displays updating options of a show time
+     */
     public static void displayShowTimeUpdateOption() {
         System.out.println("\nWhat would you want to update?");
         System.out.println("1. Movie");
         System.out.println("2. Start Date Time");
     }
     
+    /**
+     * The method displays all available showtimes for a admin
+     * @param cineplexList the list of all cineplexes
+     */
     public static void displayShowTimeAdmin(ArrayList<Cineplex> cineplexList) {
         for (int i = 0; i < cineplexList.size(); i++) {
             Cineplex cineplex = cineplexList.get(i);
@@ -73,6 +96,10 @@ public class ShowTimeUI {
         }
     }
     
+    /**
+     * The method displays all available showtimes for a movie goer
+     * @param cineplexList the list of all cineplexes
+     */
     public static void displayShowTimeMovieGoer(ArrayList<Cineplex> cineplexList) {
         for (int i = 0; i < cineplexList.size(); i++) {
             Cineplex cineplex = cineplexList.get(i);

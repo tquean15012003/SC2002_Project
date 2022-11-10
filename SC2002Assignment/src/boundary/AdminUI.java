@@ -8,10 +8,19 @@ import control.PricingSchemeController;
 import control.ShowTimeController;
 import entity.Admin;
 
+/**
+ * This class contains methods to display all admin-related UI
+ */
 public class AdminUI {
 
+    /**
+     * The scanner to read inputs from the console
+     */
     private static Scanner input = new Scanner(System.in);
 
+    /**
+     * This method displays admin sign in / sign up options
+     */
     public static void displayAdminMainUI() {
         int choice = 0;
         System.out.println("===== Welcome to Admin UI =====");
@@ -47,6 +56,10 @@ public class AdminUI {
         }
     }
 
+    /**
+     * This method displays actions that the admin can perform
+     * @param admin the admin performs actions
+     */
     public static void displayAdminServicesUI(Admin admin) {
         int choice = 0;
         System.out.println("Hi " + admin.getName());
@@ -81,6 +94,9 @@ public class AdminUI {
         }
     }
 
+    /**
+     * This method displays movie-related actions that the admin can perform
+     */
     public static void displayAdminMovieServicesUI() {
         int choice = 0;
         System.out.println("===== What would you like to do? =====");
@@ -130,6 +146,9 @@ public class AdminUI {
         }
     }
 
+    /**
+     * This method displays show-time-related actions that the admin can perform
+     */
     public static void displayAdminShowtimeServicesUI() {
         int choice = 0;
         System.out.println("===== What would you like to do? =====");
@@ -179,6 +198,9 @@ public class AdminUI {
         }
     }
     
+    /**
+     * This method displays pricing-scheme-related actions that the admin can perform
+     */
     public static void displayAdminPricingSchemeServicesUI() {
         int choice = 0;
         System.out.println("===== What would you like to do? =====");
@@ -212,6 +234,9 @@ public class AdminUI {
         }
     }
     
+    /**
+     * This method displays multiplier-related actions that the admin can perform
+     */
     public static void displayAdminMultiplierServicesUI() {
         int choice = 0;
         System.out.println("===== Select a type of multiplier =====");
@@ -269,6 +294,9 @@ public class AdminUI {
         }
     }
     
+    /**
+     * This method displays holiday-related actions that the admin can perform
+     */
     public static void displayAdminHolidayServicesUI() {
         int choice = 0;
         System.out.println("===== What would you like to do? =====");
@@ -302,6 +330,9 @@ public class AdminUI {
         }
     }
 
+    /**
+     * This method displays listing options
+     */
     public static void displayAdminListTopMovieServicesUI() {
         int choice = 0;
         System.out.println("Top 5 movies by ... ");

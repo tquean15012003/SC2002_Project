@@ -12,7 +12,7 @@ import java.util.HashMap;
  */
 public class PricingScheme implements Serializable {
     /**
-     * The serialisation version number
+     * The serialization version number
      */
     private static final long serialVersionUID = 9L;
 
@@ -45,6 +45,9 @@ public class PricingScheme implements Serializable {
      */
     private HashMap<DateType, Double> dateMultipliers = new HashMap<DateType, Double>();
     
+    /**
+     * This method creates a PricingScheme object
+     */
     public PricingScheme() {
         this.basePrice = 10;
     }
@@ -196,7 +199,7 @@ public class PricingScheme implements Serializable {
     
     /**
      * This method returns the the multiplier corresponding to a given date.
-     * @param date the date to get the multiplier of
+     * @param date the date to get the multiplier
      * @return the multiplier corresponding to the date
      */
     public Double getDateMultiplier(LocalDate date) {
@@ -205,7 +208,7 @@ public class PricingScheme implements Serializable {
     
     /**
      * This method returns the the multiplier corresponding to a given date type.
-     * @param dateType the date type to get the multiplier of
+     * @param dateType the date type to get the multiplier
      * @return the multiplier corresponding to the date type
      */
     public Double getDateMultiplier(DateType dateType) {
@@ -214,7 +217,7 @@ public class PricingScheme implements Serializable {
     
     /**
      * This method sets the the multiplier corresponding to a given date type.
-     * @param dateType the date type to set the multiplier of
+     * @param dateType the date type to set the multiplier 
      * @param dateMultiplier the new multiplier for the date type
      */
     public void setDateMultiplier(DateType dateType, Double dateMultiplier) {
@@ -223,13 +226,18 @@ public class PricingScheme implements Serializable {
     
     /**
      * This method returns the the multiplier corresponding to a given seat type.
-     * @param seatType the seat type to get the multiplier of
-     * @return the multiplier corresponding to the date type
+     * @param seatType the seat type to get the multiplier
+     * @return the multiplier corresponding to the seat type
      */
     public Double getSeatMultiplier(SeatType seatType) {
         return this.seatMultipliers.get(seatType);
     }
     
+    /**
+     * This method sets the the multiplier corresponding to a given seat type.
+     * @param seatType the seat type to set the multiplier 
+     * @param seatMultiplier the new multiplier for the seat type
+     */
     public void setSeatMultiplier(SeatType seatType, Double seatMultiplier) {
         this.seatMultipliers.put(seatType, seatMultiplier);
     }

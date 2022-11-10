@@ -3,8 +3,13 @@ package entity;
 import java.io.Serializable;
 import java.util.Scanner;
 
+/**
+ * This class contains all the information of a review
+ */
 public class ReviewRating implements Serializable {
-    
+    /**
+     * The serialization version number
+     */
     private static final long serialVersionUID = 7L;
 
     /**
@@ -27,11 +32,15 @@ public class ReviewRating implements Serializable {
 	 */
     private Integer rating;
     
+    /**
+     * The review
+     */
     private String review;
 
     /**
-	 * Creates a {@code ReviewRating} object with the given movie goer, review and rating
+	 * Creates a {@code ReviewRating} object with the given movie goer, review
 	 * @param movieGoer the movie goer who made the review rating
+	 * @param review the review that the movie goer wrote
 	 */
     public ReviewRating(MovieGoer movieGoer, String review) {
         this.movieGoer = movieGoer;
@@ -56,14 +65,26 @@ public class ReviewRating implements Serializable {
 
     }
 
+    /**
+     * This method returns the rating of the review
+     * @return the rating of the review
+     */
     public Integer getRating() {
         return this.rating;
     }
 
+    /**
+     * This method returns the movie goer who made the review
+     * @return the movie goer who made the review
+     */
     public MovieGoer getMovieGoer() {
         return this.movieGoer;
     }
     
+    /**
+     * This method returns the review that the movie goer wrote
+     * @return the review that the movie goer wrote
+     */
     public String getReview() {
         return this.review;
     }

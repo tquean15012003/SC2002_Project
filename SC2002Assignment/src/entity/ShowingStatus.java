@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * The showing statuses for a movie
+ */
 public enum ShowingStatus implements LabelledItem {
     /**
     * Coming soon

@@ -9,7 +9,14 @@ import entity.DataPath;
 import entity.MovieGoer;
 import entity.Serialization;
 
+/**
+ * This class controls all movie-goer-related services
+ */
 public class MovieGoerController {
+    /**
+     * This method controls signing up for the movie goer
+     * @throws error
+     */
     public static void movieGoerSignUp() throws Exception {
         Scanner input = new Scanner(System.in);
 
@@ -59,6 +66,10 @@ public class MovieGoerController {
 		}
 	}
 
+    /**
+     * This method controls signing in for the movie goer
+     * @throws error
+     */
     public static void movieGoerLogIn() throws Exception{
         Scanner input = new Scanner(System.in);
 
@@ -90,6 +101,10 @@ public class MovieGoerController {
 		}
 	}
 	
+    /**
+     * This method returns the username of the movie goer
+     * @return the username of the movie goer
+     */
 	private static String getUsername() {
 	    Scanner input = new Scanner(System.in);
 	    CommonUI.displaySingleMessage("Enter username:");
@@ -97,6 +112,10 @@ public class MovieGoerController {
 	    return username;
 	}
 	
+	/**
+     * This method returns the password of the movie goer
+     * @return the password of the movie goer
+     */
 	private static String getPassword() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter password:");
@@ -104,6 +123,10 @@ public class MovieGoerController {
         return password;
     }
 	
+	/**
+     * This method returns the name of the movie goer
+     * @return the name of the movie goer
+     */
 	private static String getName() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter name:");
@@ -111,6 +134,10 @@ public class MovieGoerController {
         return name;
     }
 	
+	/**
+     * This method returns the mobile number of the movie goer
+     * @return the mobile number of the movie goer
+     */
 	private static String getMobile() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter mobile number:");
@@ -118,6 +145,10 @@ public class MovieGoerController {
         return mobile;
     }
 	
+	/**
+     * This method returns the email of the movie goer
+     * @return the email of the movie goer
+     */
 	private static String getEmail() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter email:");
@@ -125,6 +156,10 @@ public class MovieGoerController {
         return email;
     }
 	
+	/**
+     * This method returns the age of the movie goer
+     * @return the age of the movie goer
+     */
 	private static Integer getAge() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter age:");

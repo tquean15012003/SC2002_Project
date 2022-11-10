@@ -1,6 +1,5 @@
 package boundary;
 
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,9 +8,15 @@ import entity.Booking;
 import entity.Seat;
 import entity.SeatStatus;
 import entity.SeatType;
-import entity.ShowTime;
 
+/**
+ * This class contains methods to display all booking-related UI
+ */
 public class BookingUI {
+    
+    /**
+     * The hash map to translate a row from character to number
+     */
     public static final HashMap<Integer, String> ROW_MAP = new HashMap<Integer, String>() {
         {
             put(0, "A");
@@ -27,6 +32,9 @@ public class BookingUI {
         }
     };
 
+    /**
+     * The hash map to translate a row from number to character
+     */
     public static final HashMap<String, Integer> REVERSE_ROW_MAP = new HashMap<String, Integer>() {
         {
             put("A", 0);
@@ -42,6 +50,10 @@ public class BookingUI {
         }
     };
 
+    /**
+     * The method displays the layout of the show time
+     * @param layout the layout of the show time
+     */
     public static void displayLayOut(Seat[][] layout) {
 
         System.out.println("-------------------- Screen --------------------\n\n");
@@ -90,6 +102,10 @@ public class BookingUI {
 
     }
 
+    /**
+     * The method displays the detail of the booking
+     * @param booking the booking that the movie goer books
+     */
     public static void displayBookingConfirmInfo(Booking booking) {
         System.out.println("Booking information:");
         System.out.println("Name: " + booking.getMovieGoer().getName());
@@ -110,6 +126,10 @@ public class BookingUI {
         System.out.println();
     }
 
+    /**
+     * The method displays the booking history of a movie goer
+     * @param bookingList all booking objects in the database
+     */
     public static void displayBookingHistory(ArrayList<Booking> bookingList) {
         System.out.println("\nBooking history:\n");
         for (int i = bookingList.size() - 1; i >= 0; i--) {

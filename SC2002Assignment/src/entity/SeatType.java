@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * The seat types for a show time seat
+ */
 public enum SeatType implements LabelledItem {
     /**
     * Normal

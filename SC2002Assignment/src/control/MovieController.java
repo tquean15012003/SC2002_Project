@@ -14,8 +14,14 @@ import entity.ReviewRating;
 import entity.Serialization;
 import entity.ShowingStatus;
 
+/**
+ * This class controls all movie-related services
+ */
 public class MovieController {
-
+    
+    /**
+     * This method controls viewing movies
+     */
     public static void viewMovieDetail() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
 
@@ -32,6 +38,9 @@ public class MovieController {
         return;
     }
     
+    /**
+     * This method controls searching movies
+     */
     public static void searchMovieDetail() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
 
@@ -58,13 +67,16 @@ public class MovieController {
             return;
         }
 
-        Movie movie = movieList.get(choice - 1);
+        Movie movie = movieListToShow.get(choice - 1);
 
         MovieUI.displayMovieDetail(movie);
         return;
     }
 
 
+    /**
+     * This method controls adding a new movie
+     */
     public static void addMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
         if (movieList == null) {
@@ -89,6 +101,9 @@ public class MovieController {
         CommonUI.displaySingleMessage("The movie has been added!\n");
     }
 
+    /**
+     * This method controls updating detail for a movie
+     */
     public static void updateMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
 
@@ -145,6 +160,9 @@ public class MovieController {
         return;
     }
 
+    /**
+     * This method controls removing a movie
+     */
     public static void removeMovie() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
 
@@ -164,6 +182,9 @@ public class MovieController {
         return;
     }
 
+    /**
+     * This method controls listing top 5 movies by rating
+     */
     public static void listTopMovieByRating() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
         if (movieList == null || movieList.size() == 0) {
@@ -186,6 +207,9 @@ public class MovieController {
         MovieUI.displayTopMovieByOverallRating(movieList);
     }
 
+    /**
+     * This method controls listing top 5 movies by sales
+     */
     public static void listTopMovieBySales() {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
         if (movieList == null || movieList.size() == 0) {
@@ -209,6 +233,10 @@ public class MovieController {
 
     }
 
+    /**
+     * This method controls writing review
+     * @param movieGoer the movie goer who writes the review
+     */
     public static void writeReview(MovieGoer movieGoer) {
         ArrayList<Movie> movieList = (ArrayList<Movie>) Serialization.readSerializedObject(DataPath.MOVIE);
 
@@ -228,6 +256,11 @@ public class MovieController {
         Serialization.writeSerializedObject(DataPath.MOVIE, movieList);
     }
     
+    /**
+     * This method controls choosing a movie from the movie list
+     * @param movieList the list of movies
+     * @return the index of the movie
+     */
     public static int chooseMovieFromList(ArrayList<Movie> movieList) {
         int choice = -1;
         if (movieList == null || movieList.size() == 0) {
@@ -244,6 +277,10 @@ public class MovieController {
         return choice;
     }
 
+    /**
+     * This method returns the title of the movie
+     * @return the title of the movie
+     */
     private static String getTitle() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter title:");
@@ -251,6 +288,10 @@ public class MovieController {
         return title;
     }
 
+    /**
+     * This method returns the synopsis of the movie
+     * @return the synopsis of the movie
+     */
     private static String getSynopsis() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter synopsis:");
@@ -258,6 +299,10 @@ public class MovieController {
         return synopsis;
     }
 
+    /**
+     * This method returns the director of the movie
+     * @return the director of the movie
+     */
     private static String getDirector() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter director:");
@@ -265,6 +310,10 @@ public class MovieController {
         return director;
     }
 
+    /**
+     * This method returns the list of casts of the movie
+     * @return the list of casts of the movie
+     */
     private static ArrayList<String> getCast() {
         ArrayList<String> cast = new ArrayList<String>();
 
@@ -281,6 +330,10 @@ public class MovieController {
         return cast;
     }
 
+    /**
+     * This method returns the showing status of the movie
+     * @return the showing status of the movie
+     */
     private static ShowingStatus getShowingStatus() {
         int choice = 0;
         ShowingStatus showingStatus;
@@ -312,6 +365,10 @@ public class MovieController {
         return showingStatus;
     }
 
+    /**
+     * This method returns the movie type of the movie
+     * @return the movie type of the movie
+     */
     private static MovieType getMovieType() {
         int choice = 0;
         Scanner input = new Scanner(System.in);
@@ -340,6 +397,10 @@ public class MovieController {
         return movieType;
     }
 
+    /**
+     * This method returns the release rating of the movie
+     * @return the release rating of the movie
+     */
     private static ReleaseRating getReleaseRating() {
         int choice = 0;
         Scanner input = new Scanner(System.in);
@@ -378,6 +439,10 @@ public class MovieController {
         return releaseRating;
     }
 
+    /**
+     * This method returns the duration of the movie
+     * @return the duration of the movie
+     */
     private static String getDuration() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter duration (in minutes):");
@@ -385,6 +450,10 @@ public class MovieController {
         return duration;
     }
     
+    /**
+     * This method returns the review of the movie
+     * @return the review of the movie
+     */
     private static String getReview() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter review:");
@@ -392,6 +461,10 @@ public class MovieController {
         return review;
     }
     
+    /**
+     * This method returns the keyword
+     * @return the keyword
+     */
     private static String getKeyWord() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter a key word:");

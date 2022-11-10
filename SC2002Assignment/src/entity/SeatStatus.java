@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * The seat statuses for a show time seat
+ */
 public enum SeatStatus implements LabelledItem {
     /**
      * Not taken

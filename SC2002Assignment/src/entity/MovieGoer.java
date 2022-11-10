@@ -5,7 +5,9 @@ package entity;
  */
 
 public class MovieGoer extends Account {
-    
+    /**
+     * The serialization version number
+     */
     private static final long serialVersionUID = 6L;
 
 	/**
@@ -25,8 +27,13 @@ public class MovieGoer extends Account {
 	
 	/**
      * This method creates a MobileGoer object with the given username, password, name, mobile, email and age
+     * @param username the username of the movie goer
+     * @param password the password of the movie goer
+     * @param name the name of the movie goer
+     * @param mobile the mobile number of the movie goer
+     * @param email the email of the movie goer
+     * @param age the age of the movie goer
      */
-	
 	public MovieGoer(String username, String password, String name, String mobile, String email, Integer age) {
 		super(username, password, name);
 		this.mobile = mobile;

@@ -22,7 +22,15 @@ import entity.ShowTime;
 import entity.ShowingStatus;
 import entity.Ticket;
 
+/**
+ * This class controls all booking-related services
+ */
 public class BookingController {
+    
+    /**
+     * This method controls booking tickets for the movie goer
+     * @param movieGoer the movie goer that books tickets
+     */
     public static void bookingTicket(MovieGoer movieGoer) {
         ArrayList<Cineplex> cineplexList = (ArrayList<Cineplex>) Serialization.readSerializedObject(DataPath.CINEPLEX);
 
@@ -166,6 +174,10 @@ public class BookingController {
 
     }
 
+    /**
+     * This method controls viewing history of the movie goer
+     * @param movieGoer the movie goer who wants to view his/her booking history
+     */
     public static void viewHistory(MovieGoer movieGoer) {
         ArrayList<Booking> bookingList = (ArrayList<Booking>) Serialization.readSerializedObject(DataPath.BOOKING);
 
@@ -186,6 +198,10 @@ public class BookingController {
 
     }
 
+    /**
+     * This method returns the number of tickets
+     * @return the number of tickets
+     */
     private static Integer getNoTicket() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter number of tickets:");
@@ -193,6 +209,10 @@ public class BookingController {
         return noTicket;
     }
 
+    /**
+     * This method returns the row of a seat
+     * @return the row of a seat
+     */
     private static Integer getRow() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter row:");
@@ -200,6 +220,10 @@ public class BookingController {
         return BookingUI.REVERSE_ROW_MAP.get(row);
     }
 
+    /**
+     * This method returns the column of a seat
+     * @return the column of a seat
+     */
     private static Integer getColumn() {
         Scanner input = new Scanner(System.in);
         CommonUI.displaySingleMessage("Enter column:");
@@ -207,6 +231,10 @@ public class BookingController {
         return column - 1;
     }
 
+    /**
+     * This method returns the transaction id of a booking
+     * @return the transaction id of a booking
+     */
     private static String generateTransactionId(String cinemaCode) {
         LocalDateTime localDateNow = LocalDateTime.now();
         String month = localDateNow.getMonthValue() >= 10 ? String.valueOf(localDateNow.getMonthValue())
@@ -223,6 +251,10 @@ public class BookingController {
         return transactionId;
     }
 
+    /**
+     * This method returns the age group for a ticket
+     * @return the age group for a ticket
+     */
     private static AgeGroup getAgeGroup() {
         int choice = 0;
         AgeGroup ageGroup;
